@@ -4,10 +4,15 @@ module.exports = function override(config) {
 
   config.resolve.fallback = {
     ...config.resolve.fallback,
+
     util: require.resolve("util/"),
+    process: require.resolve("process/browser.js"),
+
+    crypto: require.resolve("crypto-browserify"),
+    stream: require.resolve("stream-browserify"),
+
     fs: false,
     path: false,
-    process: require.resolve("process/browser.js"),
   };
 
   config.plugins = [
